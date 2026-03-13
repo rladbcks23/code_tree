@@ -30,14 +30,14 @@ for k in range(1, max_num):
                 visited.append((i, j))
                 group += 1
                 dfs(i, j, k)
-    result.append((group, k))
+    result.append((k, group))
 
 max_group = 0
 for i in range(len(result)):
-    max_group = max(max_group, result[i][0])
+    max_group = max(max_group, result[i][1])
 
 for i in range(len(result)):
-    if result[i][0] < max_group:
+    if result[i][1] < max_group:
         result[i] = (100, 100)
 
 result.sort()
