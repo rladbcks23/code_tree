@@ -13,9 +13,10 @@ def dfs(i, j):
     for di, dj in delta:
         ni, nj = i+di, j+dj
         if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] == 1:
-            return dfs(ni, nj)
-    return 0
+            dfs(ni, nj)
 
 
 result = dfs(0, 0)
+if not result:
+    result = 0
 print(result)
