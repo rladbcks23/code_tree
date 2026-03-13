@@ -20,11 +20,12 @@ def dfs(depth, num):
         return
     can_move = False
     if num in tree.keys():
-        for t in tree[num] and t not in visited:
-            can_move = True
-            visited.append(t)
-            dfs(depth + 1, t)
-            visited.pop()
+        for t in tree[num]:
+            if t not in visited:
+                can_move = True
+                visited.append(t)
+                dfs(depth + 1, t)
+                visited.pop()
 
     if not can_move:
         result = max(result, depth)
