@@ -8,13 +8,10 @@ block_cnt = 0
 visited = [[False] * n for _ in range(n)]
 delta = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
-max_num = 0
-for i in range(n):
-    max_num = max(max_num, max(grid[i]))
-
 
 def dfs(num, i, j):
     global block_cnt
+
     for di, dj in delta:
         ni, nj = i + di, j + dj
         if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] == num and not visited[ni][nj]:
@@ -31,6 +28,6 @@ for i in range(n):
             dfs(grid[i][j], i, j)
 
             maximum_blocks = max(maximum_blocks, block_cnt)
-            boom_group += block_cnt//4
+            boom_group += 1 if block_cnt >= 4 else 0
 
 print(boom_group, maximum_blocks)
