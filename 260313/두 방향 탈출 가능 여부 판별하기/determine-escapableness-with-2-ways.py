@@ -9,6 +9,8 @@ result = 0
 
 def dfs(i, j):
     global result
+    if result:          # 이미 찾았으면 바로 종료
+        return
     if j == m-1 and i == n-1:
         result = 1
         return
