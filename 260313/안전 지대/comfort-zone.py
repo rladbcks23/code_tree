@@ -42,4 +42,7 @@ for i in range(len(result)):
 
 result.sort()
 
+if not result:
+    result.append((1, 0))
+
 print(' '.join(map(str, result[0])))
