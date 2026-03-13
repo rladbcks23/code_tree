@@ -14,24 +14,16 @@ result = 0
 visited = [1]
 
 
-def dfs(depth, num):
+def dfs(num):
     global result
-    if depth == n:
-        return
-    can_move = False
-    if num in tree.keys():
-        for t in tree[num]:
-            if t not in visited:
-                can_move = True
-                visited.append(t)
-                dfs(depth + 1, t)
-                visited.pop()
 
-    if not can_move:
-        result = max(result, depth)
-        return
+    for t in tree[num]:
+        if t not in visited:
+            result += 1
+            visited.append(t)
+            dfs(t)
 
 
-dfs(0, 1)
+dfs(1)
 
 print(result)
